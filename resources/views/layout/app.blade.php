@@ -30,7 +30,7 @@
                 <i class="bi bi-table"></i>
                     Manage Categories
                 </a> </li>
-            <li> <a href="#" class="nav-link text-white">
+            <li> <a href="{{route("product.index")}}" class="nav-link text-white">
                 <i class="bi bi-grid"></i>
                     Manage Products
                 </a> </li>
