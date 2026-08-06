@@ -6,7 +6,7 @@
     <h1 class="fw-bold">Product List</h1>
     <a href="{{route('product.create')}}" class="btn btn-primary">+Add Product</a>
 </div>
-<table class="table table-striped text-center align-middle">
+<table class="table table-bordered text-center align-middle">
     <tr>
         <th>ID</th>
         <th>Name</th>
@@ -24,7 +24,7 @@
             <td>{{$pro->price}}</td>
             <td>{{$pro->category_id}}</td>
             <td>
-                <img src="{{ asset('storage/products/' . $pro->image) }} width="50px" height="50px" alt="">
+                <img src="{{ asset('storage/' . $pro->image) }}" class="object-fit-cover" width="50px" height="50px" alt="">
             </td>
             <td class="d-flex justify-content-center gap-2">
                 <a href="" class="btn btn-warning">Edit</a>

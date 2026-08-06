@@ -27,8 +27,10 @@ class ProductController extends Controller
             'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048'
         ]);
 
-        $path = $request->file('image')->store('products');
-        $validated['image'] = $path;
+        if ($request->hasFile('image')) {
+            $validated['image'] = $request->file('image')->store('products', 'public');
+        }
+        
 
         Product::create($validated);
         return redirect()->route('product.index');
