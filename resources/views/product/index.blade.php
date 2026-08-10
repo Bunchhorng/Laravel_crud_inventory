@@ -22,12 +22,12 @@
             <td>{{$pro->name}}</td>
             <td>{{$pro->stock}}</td>
             <td>{{$pro->price}}</td>
-            <td>{{$pro->category_id}}</td>
+            <td>{{ $pro->category->name }}</td>
             <td>
                 <img src="{{ asset('storage/' . $pro->image) }}" class="object-fit-cover" width="50px" height="50px" alt="">
             </td>
             <td class="d-flex justify-content-center gap-2">
-                <a href="" class="btn btn-warning">Edit</a>
+                <a href="{{route('product.edit', $pro->id)}}" class="btn btn-warning">Edit</a>
                 <form action="" method="post"
                     onclick="return confirm('Are you sure to delete this category?')">
                     @csrf
