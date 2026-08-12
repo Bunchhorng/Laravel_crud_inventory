@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,11 @@ Route::get('/', function(){
     return view('layout.app');
 });
 
+Route::get('/register', [AuthController::class, 'registerForm'])->name('auth.registerForm');
+Route::post('/register', [AuthController::class, 'register'])->name('auth.register');
+
+Route::get('/login', [AuthController::class, 'loginForm'])->name('auth.login');
+
 // Category route
 Route::get('/category/index', [CategoryController::class, 'index'])->name('category.index');
 Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
@@ -36,3 +42,4 @@ Route::get('/product/create', [ProductController::class, 'create'])->name('produ
 Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');
 Route::get('/product/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
 Route::put('/product/{product}/update', [ProductController::class, 'update'])->name('product.update');
+Route::delete('/product/{product}/destroy', [ProductController::class, 'destroy'])->name('product.destroy');

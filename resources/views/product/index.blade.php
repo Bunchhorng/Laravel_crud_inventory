@@ -6,6 +6,17 @@
     <h1 class="fw-bold">Product List</h1>
     <a href="{{route('product.create')}}" class="btn btn-primary">+Add Product</a>
 </div>
+@if (session('message'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle-fill me-2"></i>
+        {{ session('message') }}
+
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"></button>
+    </div>
+@endif
 <table class="table table-bordered text-center align-middle">
     <tr>
         <th>ID</th>
@@ -28,7 +39,7 @@
             </td>
             <td class="d-flex justify-content-center gap-2">
                 <a href="{{route('product.edit', $pro->id)}}" class="btn btn-warning">Edit</a>
-                <form action="" method="post"
+                <form action="{{route('product.destroy', $pro->id)}}" method="post"
                     onclick="return confirm('Are you sure to delete this category?')">
                     @csrf
                     @method('DELETE')
