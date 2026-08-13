@@ -23,8 +23,8 @@
                         <p class="text-muted small">Please sign in to your account</p>
                     </div>
 
-                    <form action="#" method="POST" class="needs-validation" novalidate>
-                        
+                    <form action="{{route('auth.login')}}" method="POST" class="needs-validation" novalidate>
+                        @csrf
                         <!-- Email Field -->
                         <div class="mb-3">
                             <label for="email" class="form-label fw-medium">Email Address</label>
@@ -44,14 +44,6 @@
                                 <span class="input-group-text bg-light text-muted"><i class="bi bi-lock"></i></span>
                                 <input type="password" class="form-control" id="password" name="password" placeholder="••••••••" required>
                             </div>
-                        </div>
-
-                        <!-- Remember Me Checkbox -->
-                        <div class="form-check mb-4">
-                            <input class="form-check-input" type="checkbox" id="remember" name="remember">
-                            <label class="form-check-label text-muted small" for="remember">
-                                Remember me on this device
-                            </label>
                         </div>
 
                         <!-- Submit Button -->

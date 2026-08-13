@@ -19,13 +19,14 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function(){
-    return view('layout.app');
-});
+    return view('welcome');
+})->name('welcome');
 
 Route::get('/register', [AuthController::class, 'registerForm'])->name('auth.registerForm');
 Route::post('/register', [AuthController::class, 'register'])->name('auth.register');
 
-Route::get('/login', [AuthController::class, 'loginForm'])->name('auth.login');
+Route::get('/login', [AuthController::class, 'loginForm'])->name('auth.loginForm');
+Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 
 // Category route
 Route::get('/category/index', [CategoryController::class, 'index'])->name('category.index');
