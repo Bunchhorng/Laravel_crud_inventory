@@ -16,13 +16,13 @@
 
 <body class="d-flex">
     <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark min-vh-100" style="width: 280px;" bis_skin_checked="1"> 
-        <a href="/" class="d-flex gap-4 align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <a href="{{route('dashboard')}}" class="d-flex gap-4 align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <i class="bi bi-box-seam-fill" style="font-size: 50px"></i>
             <span class="fs-4">Inventroy <br> Management</span> 
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
-            <li> <a href="#" class="nav-link text-white">
+            <li> <a href="{{route('dashboard')}}" class="nav-link text-white">
                 <i class="bi bi-speedometer2"></i>
                     Dashboard
                 </a> </li>
@@ -51,7 +51,12 @@
                 <li>
                     <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                <li>
+                    <form action="{{route('logout')}}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+                </li>
             </ul>
         </div>
     </div>
