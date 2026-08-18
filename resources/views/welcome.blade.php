@@ -65,6 +65,11 @@
     </div>
   </nav>
 
+  @if(session('error'))
+      <div class="alert alert-danger">
+          {{ session('error') }}
+      </div>
+  @endif
   <!-- Hero Section (Centered Symmetrical Layout) -->
   <section class="hero-section text-center">
     <div class="container">
